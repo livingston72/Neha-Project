@@ -1,0 +1,39 @@
+{
+  "environment": {
+    "python": "3.14.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "packages": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "librosa": "1.0.0",
+      "soundfile": "0.14.0",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2",
+      "matplotlib": "3.11.2",
+      "joblib": "1.6.0",
+      "torch": "2.14.0"
+    },
+    "timestamp_utc": "2026-09-18T21:04:53.525416+00:00"
+  },
+  "software_test_groups_passed": 10,
+  "software_test_groups_failed": 0,
+  "windows_cp314_wheel_resolution": "PASS (metadata only)",
+  "installed_dependencies": "pip check passed",
+  "demo_javascript_syntax": "node --check passed",
+  "fresh_setup_manifest": "PASS",
+  "real_research_training": "PENDING: dataset only on user Windows PC",
+  "source_hashes": {
+    "src/cepstra.py": "d33b57104735e72451f87032ffbccbe57d33a0b06ee171e712e9cf31becd3e11",
+    "src/references.py": "6a5cedf4944d5da3141cbf953f757ca19062361e823eba00baa5a1371db41673",
+    "src/__init__.py": "7c41057263595a08a11694b689d3b7797d0fc8679f625a7585989fa920c28f19",
+    "src/features.py": "8ea3ccfc5e4ec79b32345b8d955aaa4e62e5f3b5e05010228f5ca01145bdb8f3",
+    "src/dataset.py": "2167030462f2136b8e99e94f20669eab137ff4cdf630ee51495fe322c4035ba1",
+    "src/common.py": "7a5aea096f49bd64190f497e9055c61842ad79f3dc3d5fb9e71a9da534a5589f",
+    "src/banks.py": "ed2be84204f50936901469b973abdc4f413b47023da07ef63389e06dadc505da",
+    "src/pipeline.py": "d9535372b8f630c1ec4ef631f76108a4c5f90d480bd70e3a21f3c9ca59a423a6",
+    "src/demo.py": "65cab7d3b21d18dbdeebbb257fc27c8c2810a7de0bca5b754e1e9c9de1b09f05",
+    "src/training.py": "a4425976920815be4ed0ebe87ea5e8eb7556084b25d6b04730bdece8d5dfddad",
+    "src/validation.py": "41ff0d2fa9ca855ab7d3108dba212f1c7c0cd1a96b1f259d753cb9c0af64ac83"
+  }
+}

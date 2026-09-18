@@ -1,0 +1,96 @@
+{
+  "scope": "SOFTWARE TESTS ONLY: generated numerical fixtures; not SEP-28k/FluencyBank research",
+  "environment": {
+    "python": "3.14.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "packages": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "librosa": "1.0.0",
+      "soundfile": "0.14.0",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2",
+      "matplotlib": "3.11.2",
+      "joblib": "1.6.0",
+      "torch": "2.14.0"
+    },
+    "timestamp_utc": "2026-09-18T21:02:52.166961+00:00"
+  },
+  "checks": [
+    {
+      "check": "16 kHz stereo -> mono 8 kHz; 106 filters; 107x150 RMS; 1069 finite features",
+      "status": "PASS"
+    },
+    {
+      "check": "Missing, zero-sample, corrupted, short and NaN WAVs rejected distinctly",
+      "status": "PASS"
+    },
+    {
+      "check": "All ten LTAS formulas against hand values; SFF against analytic impulse response",
+      "status": "PASS"
+    },
+    {
+      "check": "Six feature dimensions, silent signals, one frame and incomplete tails",
+      "status": "PASS"
+    },
+    {
+      "check": "Audit all labels and WAVs; preserve original; pure selection for all five tasks",
+      "status": "PASS"
+    },
+    {
+      "check": "Test-set perturbation cannot change training scaling or SMOTE; deterministic split",
+      "status": "PASS"
+    },
+    {
+      "check": "All five binary tasks; SVM/LSTM/Bi-LSTM training, F1, model reload, reports and curves",
+      "status": "PASS"
+    },
+    {
+      "check": "Independent-dataset route loads fixed SEP model and does not retrain",
+      "status": "PASS"
+    },
+    {
+      "check": "Local HTTP demo: page, WAV upload, identical inference, corrupted upload error",
+      "status": "PASS"
+    },
+    {
+      "check": "Duplicate/invalid labels and stale feature files cannot silently enter training",
+      "status": "PASS"
+    }
+  ],
+  "passed": 10,
+  "failed": 0,
+  "typical_clip_validation": {
+    "audio_path": "/var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/typical.wav",
+    "original_sample_rate": 16000,
+    "original_samples": 48000,
+    "original_duration": 3.0,
+    "original_channels": 2,
+    "resampled_sample_rate": 8000,
+    "resampled_samples": 24000,
+    "resampled_duration": 3.0,
+    "frame_size": 160,
+    "number_of_frames": 150,
+    "discarded_tail_samples": 0,
+    "number_of_filters": 106,
+    "components": 107,
+    "filtered_signal_shape": [
+      106,
+      24000
+    ],
+    "rms_matrix_shape": [
+      107,
+      150
+    ],
+    "statistics_per_component": 10,
+    "feature_type": "CQT-LTAS",
+    "final_feature_shape": [
+      1069
+    ],
+    "nan_count": 0,
+    "infinity_count": 0
+  },
+  "actual_dataset_evaluation": "PENDING: run on Windows with real data",
+  "windows_cuda_validation": "PENDING: not available on macOS CPU host"
+}

@@ -1,0 +1,113 @@
+{
+  "scope": "REAL PROJECT VALIDATION",
+  "environment": {
+    "python": "3.14.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "packages": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "librosa": "1.0.0",
+      "soundfile": "0.14.0",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2",
+      "matplotlib": "3.11.2",
+      "joblib": "1.6.0",
+      "torch": "2.14.0"
+    },
+    "timestamp_utc": "2026-09-18T21:04:15.120504+00:00"
+  },
+  "checks": [
+    {
+      "check": "Dataset found",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "Labels found",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "WAV directory found",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "WAV matching and valid dataset generated",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "Empty audio detection audit performed",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "Every selected valid WAV still exists",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "8 kHz resampling",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "20 ms rectangular framing",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "106 CQT filters and full band",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "RMS and ten LTAS measures",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "1069 features, no NaN/Infinity",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "Feature CSV complete, finite and provenance verified",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "SVM: split, SMOTE, F1 and saved model",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "LSTM: split, SMOTE, F1 and saved model",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "Bi-LSTM: split, SMOTE, F1 and saved model",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "Measured results saved",
+      "status": "PENDING_OR_FAILED",
+      "detail": ""
+    },
+    {
+      "check": "Demo upload software test",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "README and methodology documented",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "complete": false
+}

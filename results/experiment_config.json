@@ -1,0 +1,140 @@
+{
+  "status": "not_run",
+  "reason": "Real SEP-28k data must be processed before any research results exist",
+  "environment": {
+    "python": "3.14.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "packages": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "pandas": "3.0.6",
+      "librosa": "1.0.0",
+      "soundfile": "0.14.0",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2",
+      "matplotlib": "3.11.2",
+      "joblib": "1.6.0",
+      "torch": "2.14.0"
+    },
+    "timestamp_utc": "2026-09-18T21:01:26.931143+00:00"
+  },
+  "feature_defaults": {
+    "version": "ltas-reference-informed-v1",
+    "feature_type": "CQT-LTAS",
+    "dimension": 1069,
+    "sample_rate": 8000,
+    "mono": "arithmetic channel mean",
+    "resampling": "scipy.resample_poly",
+    "resample_window": [
+      "kaiser",
+      5.0
+    ],
+    "resample_padtype": "constant",
+    "frame_samples": 160,
+    "frame_hop": 160,
+    "frame_window": "rectangular",
+    "partial_frame": "drop trailing incomplete frame; reject clips shorter than 20ms",
+    "waveform_normalization": "none",
+    "ltas_order": "reference statistic-major",
+    "std_ddof": 1,
+    "skew_bias": true,
+    "kurtosis": "Pearson, bias=True",
+    "constant_moments": 0.0,
+    "zero_denominator_result": 0.0,
+    "cqt": {
+      "fmin": 10,
+      "fmax": 4000,
+      "bins_per_octave": 12,
+      "interior_centers": 104,
+      "boundary_filters": [
+        0,
+        4000
+      ],
+      "total_filters": 106,
+      "construction": "LTFAT-informed continuous frequency prototypes; periodic convolution",
+      "filter_prototype": "frequency-domain Hann; DC/Nyquist flat-top taper",
+      "minimum_support_fft_bins": 4,
+      "gain": "sqrt(N/ceil(N*support/fs)); endpoints /sqrt(2)"
+    },
+    "gt": {
+      "filters": 32,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "centers": "ERB-rate spaced",
+      "order": 4,
+      "phase": 0,
+      "bandwidth": "24.7*(4.37*fc/1000+1)",
+      "impulse_decay_limit": 30,
+      "gain": "unit magnitude at center"
+    },
+    "sff": {
+      "filters": 201,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "step_hz": 20,
+      "a": 0.98
+    },
+    "ltas_baseline": {
+      "status": "REFERENCE PROXY, identity NOT SPECIFIED IN PAPER",
+      "fir_order": 32,
+      "edges_hz": [
+        0,
+        30,
+        60,
+        120,
+        240,
+        480,
+        960,
+        1920,
+        2400,
+        3840
+      ]
+    },
+    "mfcc": {
+      "coefficients": 13,
+      "delta": 13,
+      "double_delta": 13,
+      "nfft": 256,
+      "mels": 26,
+      "dct": 2,
+      "include_c0": true,
+      "mel_norm": "slaney",
+      "db_floor": 1e-10
+    },
+    "ztwcc": {
+      "nfft": 128,
+      "segment_samples": 40,
+      "hop_samples": 50,
+      "preemphasis": 0.97,
+      "coefficients": 13,
+      "include_c0": true,
+      "log_floor": 1e-12,
+      "second_difference": "centered periodic"
+    },
+    "delta_width": 5,
+    "delta_edges": "replicate",
+    "methodology": "See METHODOLOGY.md: PAPER / REFERENCE / IMPLEMENTATION DECISION"
+  },
+  "runs": [],
+  "train_defaults": {
+    "seed": 42,
+    "test_size": 0.33,
+    "smote_k_neighbors": 5,
+    "scaling": "standard",
+    "svm_c": 1.0,
+    "svm_gamma": "scale",
+    "learning_rate": 0.01,
+    "hidden_size": 32,
+    "layers": 1,
+    "dropout": 0.0,
+    "batch_size": 32,
+    "epochs": 20,
+    "device": "auto",
+    "sequence_layout": "single_step"
+  },
+  "dataset_counts": "PENDING actual dataset audit"
+}

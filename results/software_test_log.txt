@@ -1,0 +1,1090 @@
+SOFTWARE TEST FIXTURES ONLY. All audio, counts, model fits and F1 scores below are isolated numerical tests.
+They are NOT measured SEP-28k or FluencyBank research results. Test models/audio were removed.
+
+Audio verification: 100 / 107
+Audio verification: 107 / 107
+{
+  "dataset": "sep28k",
+  "labels_path": "/private/var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/dataset/SEP-28k_labels.csv",
+  "labels_sha256": "e45e934534f84cfcc60eac52ac96a50408cf6a8ef300a941dc1f126d8407db2d",
+  "wav_directory": "/private/var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/dataset/clips/stuttering-clips/clips",
+  "wav_template": "{Show}{EpId}{ClipId}.wav",
+  "total_samples": 107,
+  "clean_samples": 40,
+  "stutter_counts_including_overlaps": {
+    "Block": 19,
+    "Interjection": 13,
+    "SoundRep": 12,
+    "WordRep": 12,
+    "Prolongation": 12
+  },
+  "overlapping_labels": 1,
+  "label_combinations": {
+    "Clean": 40,
+    "Block": 18,
+    "Interjection": 12,
+    "SoundRep": 12,
+    "WordRep": 12,
+    "Prolongation": 12,
+    "Block+Interjection": 1
+  },
+  "audio_status_counts": {
+    "valid": 103,
+    "missing_audio": 1,
+    "empty_audio": 1,
+    "invalid_audio": 1,
+    "short_audio": 1
+  },
+  "selection_provenance": "[IMPLEMENTATION DECISION] Pure target vs all-five-zero clean; NOT SPECIFIED IN PAPER",
+  "tasks": {
+    "block": {
+      "original_clips": 58,
+      "empty_clips": 1,
+      "missing_clips": 1,
+      "invalid_clips": 1,
+      "short_clips": 1,
+      "valid_clips": 54,
+      "valid_clean": 36,
+      "valid_target": 18,
+      "valid_block": 18
+    },
+    "interjection": {
+      "original_clips": 52,
+      "empty_clips": 1,
+      "missing_clips": 1,
+      "invalid_clips": 1,
+      "short_clips": 1,
+      "valid_clips": 48,
+      "valid_clean": 36,
+      "valid_target": 12,
+      "valid_interjection": 12
+    },
+    "soundrep": {
+      "original_clips": 52,
+      "empty_clips": 1,
+      "missing_clips": 1,
+      "invalid_clips": 1,
+      "short_clips": 1,
+      "valid_clips": 48,
+      "valid_clean": 36,
+      "valid_target": 12,
+      "valid_soundrep": 12
+    },
+    "wordrep": {
+      "original_clips": 52,
+      "empty_clips": 1,
+      "missing_clips": 1,
+      "invalid_clips": 1,
+      "short_clips": 1,
+      "valid_clips": 48,
+      "valid_clean": 36,
+      "valid_target": 12,
+      "valid_wordrep": 12
+    },
+    "prolongation": {
+      "original_clips": 52,
+      "empty_clips": 1,
+      "missing_clips": 1,
+      "invalid_clips": 1,
+      "short_clips": 1,
+      "valid_clips": 48,
+      "valid_clean": 36,
+      "valid_target": 12,
+      "valid_prolongation": 12
+    }
+  }
+}
+Training classes before SMOTE: {'0': 27, '1': 13}
+Training classes after SMOTE: {'0': 27, '1': 27}
+Training classes before SMOTE: {'0': 27, '1': 13}
+Training classes after SMOTE: {'0': 27, '1': 27}
+{
+  "audio_path": "/private/var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/dataset/clips/stuttering-clips/clips/TEST_ONLY010000.wav",
+  "original_sample_rate": 16000,
+  "original_samples": 3200,
+  "original_duration": 0.2,
+  "original_channels": 1,
+  "resampled_sample_rate": 8000,
+  "resampled_samples": 1600,
+  "resampled_duration": 0.2,
+  "frame_size": 160,
+  "number_of_frames": 10,
+  "discarded_tail_samples": 0,
+  "number_of_filters": 106,
+  "components": 107,
+  "filtered_signal_shape": [
+    106,
+    1600
+  ],
+  "rms_matrix_shape": [
+    107,
+    10
+  ],
+  "statistics_per_component": 10,
+  "feature_type": "CQT-LTAS",
+  "final_feature_shape": [
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0
+}
+Feature extraction: 54 / 54 (0 failed)
+{
+  "total_clips": 54,
+  "processed_clips": 54,
+  "failed_clips": 0,
+  "feature_matrix_shape": [
+    54,
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0,
+  "class_distribution": {
+    "0": 36,
+    "1": 18
+  },
+  "dataset": "sep28k",
+  "stutter_type": "block",
+  "feature_config": {
+    "version": "ltas-reference-informed-v1",
+    "feature_type": "CQT-LTAS",
+    "dimension": 1069,
+    "sample_rate": 8000,
+    "mono": "arithmetic channel mean",
+    "resampling": "scipy.resample_poly",
+    "resample_window": [
+      "kaiser",
+      5.0
+    ],
+    "resample_padtype": "constant",
+    "frame_samples": 160,
+    "frame_hop": 160,
+    "frame_window": "rectangular",
+    "partial_frame": "drop trailing incomplete frame; reject clips shorter than 20ms",
+    "waveform_normalization": "none",
+    "ltas_order": "reference statistic-major",
+    "std_ddof": 1,
+    "skew_bias": true,
+    "kurtosis": "Pearson, bias=True",
+    "constant_moments": 0.0,
+    "zero_denominator_result": 0.0,
+    "cqt": {
+      "fmin": 10,
+      "fmax": 4000,
+      "bins_per_octave": 12,
+      "interior_centers": 104,
+      "boundary_filters": [
+        0,
+        4000
+      ],
+      "total_filters": 106,
+      "construction": "LTFAT-informed continuous frequency prototypes; periodic convolution",
+      "filter_prototype": "frequency-domain Hann; DC/Nyquist flat-top taper",
+      "minimum_support_fft_bins": 4,
+      "gain": "sqrt(N/ceil(N*support/fs)); endpoints /sqrt(2)"
+    },
+    "gt": {
+      "filters": 32,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "centers": "ERB-rate spaced",
+      "order": 4,
+      "phase": 0,
+      "bandwidth": "24.7*(4.37*fc/1000+1)",
+      "impulse_decay_limit": 30,
+      "gain": "unit magnitude at center"
+    },
+    "sff": {
+      "filters": 201,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "step_hz": 20,
+      "a": 0.98
+    },
+    "ltas_baseline": {
+      "status": "REFERENCE PROXY, identity NOT SPECIFIED IN PAPER",
+      "fir_order": 32,
+      "edges_hz": [
+        0,
+        30,
+        60,
+        120,
+        240,
+        480,
+        960,
+        1920,
+        2400,
+        3840
+      ]
+    },
+    "mfcc": {
+      "coefficients": 13,
+      "delta": 13,
+      "double_delta": 13,
+      "nfft": 256,
+      "mels": 26,
+      "dct": 2,
+      "include_c0": true,
+      "mel_norm": "slaney",
+      "db_floor": 1e-10
+    },
+    "ztwcc": {
+      "nfft": 128,
+      "segment_samples": 40,
+      "hop_samples": 50,
+      "preemphasis": 0.97,
+      "coefficients": 13,
+      "include_c0": true,
+      "log_floor": 1e-12,
+      "second_difference": "centered periodic"
+    },
+    "delta_width": 5,
+    "delta_edges": "replicate",
+    "methodology": "See METHODOLOGY.md: PAPER / REFERENCE / IMPLEMENTATION DECISION"
+  },
+  "selection_sha256": "d292ad754d397322144fd8ac5956d243ed2a0e0cb67caaf79395bf2a693c4b16",
+  "feature_csv_sha256": "446a49698b104d32a0fe07aa6412d0c6f3e4f39f4e510aff3b8ef984b4dce5ba"
+}
+Training classes before SMOTE: {'0': 24, '1': 12}
+Training classes after SMOTE: {'0': 24, '1': 24}
+Untouched sep28k evaluation: F1=0.666667
+Saved model: /var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/models/20260918T210248390451Z_block_CQT-LTAS_SVM/model.joblib
+Training classes before SMOTE: {'0': 24, '1': 12}
+Training classes after SMOTE: {'0': 24, '1': 24}
+LSTM epoch 1/2: BCE=0.651037
+LSTM epoch 2/2: BCE=0.566235
+Untouched sep28k evaluation: F1=0.714286
+Saved model: /var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/models/20260918T210248759783Z_block_CQT-LTAS_LSTM/model.joblib
+Training classes before SMOTE: {'0': 24, '1': 12}
+Training classes after SMOTE: {'0': 24, '1': 24}
+Bi-LSTM epoch 1/2: BCE=0.678337
+Bi-LSTM epoch 2/2: BCE=0.546602
+Untouched sep28k evaluation: F1=0.833333
+Saved model: /var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/models/20260918T210249527026Z_block_CQT-LTAS_Bi-LSTM/model.joblib
+{
+  "audio_path": "/private/var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/dataset/clips/stuttering-clips/clips/TEST_ONLY010000.wav",
+  "original_sample_rate": 16000,
+  "original_samples": 3200,
+  "original_duration": 0.2,
+  "original_channels": 1,
+  "resampled_sample_rate": 8000,
+  "resampled_samples": 1600,
+  "resampled_duration": 0.2,
+  "frame_size": 160,
+  "number_of_frames": 10,
+  "discarded_tail_samples": 0,
+  "number_of_filters": 106,
+  "components": 107,
+  "filtered_signal_shape": [
+    106,
+    1600
+  ],
+  "rms_matrix_shape": [
+    107,
+    10
+  ],
+  "statistics_per_component": 10,
+  "feature_type": "CQT-LTAS",
+  "final_feature_shape": [
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0
+}
+Feature extraction: 48 / 48 (0 failed)
+{
+  "total_clips": 48,
+  "processed_clips": 48,
+  "failed_clips": 0,
+  "feature_matrix_shape": [
+    48,
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0,
+  "class_distribution": {
+    "0": 36,
+    "1": 12
+  },
+  "dataset": "sep28k",
+  "stutter_type": "interjection",
+  "feature_config": {
+    "version": "ltas-reference-informed-v1",
+    "feature_type": "CQT-LTAS",
+    "dimension": 1069,
+    "sample_rate": 8000,
+    "mono": "arithmetic channel mean",
+    "resampling": "scipy.resample_poly",
+    "resample_window": [
+      "kaiser",
+      5.0
+    ],
+    "resample_padtype": "constant",
+    "frame_samples": 160,
+    "frame_hop": 160,
+    "frame_window": "rectangular",
+    "partial_frame": "drop trailing incomplete frame; reject clips shorter than 20ms",
+    "waveform_normalization": "none",
+    "ltas_order": "reference statistic-major",
+    "std_ddof": 1,
+    "skew_bias": true,
+    "kurtosis": "Pearson, bias=True",
+    "constant_moments": 0.0,
+    "zero_denominator_result": 0.0,
+    "cqt": {
+      "fmin": 10,
+      "fmax": 4000,
+      "bins_per_octave": 12,
+      "interior_centers": 104,
+      "boundary_filters": [
+        0,
+        4000
+      ],
+      "total_filters": 106,
+      "construction": "LTFAT-informed continuous frequency prototypes; periodic convolution",
+      "filter_prototype": "frequency-domain Hann; DC/Nyquist flat-top taper",
+      "minimum_support_fft_bins": 4,
+      "gain": "sqrt(N/ceil(N*support/fs)); endpoints /sqrt(2)"
+    },
+    "gt": {
+      "filters": 32,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "centers": "ERB-rate spaced",
+      "order": 4,
+      "phase": 0,
+      "bandwidth": "24.7*(4.37*fc/1000+1)",
+      "impulse_decay_limit": 30,
+      "gain": "unit magnitude at center"
+    },
+    "sff": {
+      "filters": 201,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "step_hz": 20,
+      "a": 0.98
+    },
+    "ltas_baseline": {
+      "status": "REFERENCE PROXY, identity NOT SPECIFIED IN PAPER",
+      "fir_order": 32,
+      "edges_hz": [
+        0,
+        30,
+        60,
+        120,
+        240,
+        480,
+        960,
+        1920,
+        2400,
+        3840
+      ]
+    },
+    "mfcc": {
+      "coefficients": 13,
+      "delta": 13,
+      "double_delta": 13,
+      "nfft": 256,
+      "mels": 26,
+      "dct": 2,
+      "include_c0": true,
+      "mel_norm": "slaney",
+      "db_floor": 1e-10
+    },
+    "ztwcc": {
+      "nfft": 128,
+      "segment_samples": 40,
+      "hop_samples": 50,
+      "preemphasis": 0.97,
+      "coefficients": 13,
+      "include_c0": true,
+      "log_floor": 1e-12,
+      "second_difference": "centered periodic"
+    },
+    "delta_width": 5,
+    "delta_edges": "replicate",
+    "methodology": "See METHODOLOGY.md: PAPER / REFERENCE / IMPLEMENTATION DECISION"
+  },
+  "selection_sha256": "668dd9490dd74a64321b4703ca49b357bd6bd4744864fcba6ede4cab2b9598d0",
+  "feature_csv_sha256": "f09ebbfd8b363ceaa599e6f1ab2c34b9bc2af0fe41fd97243da74e02a5c81b81"
+}
+Training classes before SMOTE: {'0': 24, '1': 8}
+Training classes after SMOTE: {'0': 24, '1': 24}
+Untouched sep28k evaluation: F1=0.857143
+Saved model: /var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/models/20260918T210249928519Z_interjection_CQT-LTAS_SVM/model.joblib
+{
+  "audio_path": "/private/var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/dataset/clips/stuttering-clips/clips/TEST_ONLY010000.wav",
+  "original_sample_rate": 16000,
+  "original_samples": 3200,
+  "original_duration": 0.2,
+  "original_channels": 1,
+  "resampled_sample_rate": 8000,
+  "resampled_samples": 1600,
+  "resampled_duration": 0.2,
+  "frame_size": 160,
+  "number_of_frames": 10,
+  "discarded_tail_samples": 0,
+  "number_of_filters": 106,
+  "components": 107,
+  "filtered_signal_shape": [
+    106,
+    1600
+  ],
+  "rms_matrix_shape": [
+    107,
+    10
+  ],
+  "statistics_per_component": 10,
+  "feature_type": "CQT-LTAS",
+  "final_feature_shape": [
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0
+}
+Feature extraction: 48 / 48 (0 failed)
+{
+  "total_clips": 48,
+  "processed_clips": 48,
+  "failed_clips": 0,
+  "feature_matrix_shape": [
+    48,
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0,
+  "class_distribution": {
+    "0": 36,
+    "1": 12
+  },
+  "dataset": "sep28k",
+  "stutter_type": "soundrep",
+  "feature_config": {
+    "version": "ltas-reference-informed-v1",
+    "feature_type": "CQT-LTAS",
+    "dimension": 1069,
+    "sample_rate": 8000,
+    "mono": "arithmetic channel mean",
+    "resampling": "scipy.resample_poly",
+    "resample_window": [
+      "kaiser",
+      5.0
+    ],
+    "resample_padtype": "constant",
+    "frame_samples": 160,
+    "frame_hop": 160,
+    "frame_window": "rectangular",
+    "partial_frame": "drop trailing incomplete frame; reject clips shorter than 20ms",
+    "waveform_normalization": "none",
+    "ltas_order": "reference statistic-major",
+    "std_ddof": 1,
+    "skew_bias": true,
+    "kurtosis": "Pearson, bias=True",
+    "constant_moments": 0.0,
+    "zero_denominator_result": 0.0,
+    "cqt": {
+      "fmin": 10,
+      "fmax": 4000,
+      "bins_per_octave": 12,
+      "interior_centers": 104,
+      "boundary_filters": [
+        0,
+        4000
+      ],
+      "total_filters": 106,
+      "construction": "LTFAT-informed continuous frequency prototypes; periodic convolution",
+      "filter_prototype": "frequency-domain Hann; DC/Nyquist flat-top taper",
+      "minimum_support_fft_bins": 4,
+      "gain": "sqrt(N/ceil(N*support/fs)); endpoints /sqrt(2)"
+    },
+    "gt": {
+      "filters": 32,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "centers": "ERB-rate spaced",
+      "order": 4,
+      "phase": 0,
+      "bandwidth": "24.7*(4.37*fc/1000+1)",
+      "impulse_decay_limit": 30,
+      "gain": "unit magnitude at center"
+    },
+    "sff": {
+      "filters": 201,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "step_hz": 20,
+      "a": 0.98
+    },
+    "ltas_baseline": {
+      "status": "REFERENCE PROXY, identity NOT SPECIFIED IN PAPER",
+      "fir_order": 32,
+      "edges_hz": [
+        0,
+        30,
+        60,
+        120,
+        240,
+        480,
+        960,
+        1920,
+        2400,
+        3840
+      ]
+    },
+    "mfcc": {
+      "coefficients": 13,
+      "delta": 13,
+      "double_delta": 13,
+      "nfft": 256,
+      "mels": 26,
+      "dct": 2,
+      "include_c0": true,
+      "mel_norm": "slaney",
+      "db_floor": 1e-10
+    },
+    "ztwcc": {
+      "nfft": 128,
+      "segment_samples": 40,
+      "hop_samples": 50,
+      "preemphasis": 0.97,
+      "coefficients": 13,
+      "include_c0": true,
+      "log_floor": 1e-12,
+      "second_difference": "centered periodic"
+    },
+    "delta_width": 5,
+    "delta_edges": "replicate",
+    "methodology": "See METHODOLOGY.md: PAPER / REFERENCE / IMPLEMENTATION DECISION"
+  },
+  "selection_sha256": "b5bff4adde974f808a857f0a7bb53497b3abc6c5c095010803496499c4cd6f51",
+  "feature_csv_sha256": "a45a606f47245c4bd058e0c7afa6f4a3f9666e2eac56a760d4effa6ad0ccca82"
+}
+Training classes before SMOTE: {'0': 24, '1': 8}
+Training classes after SMOTE: {'0': 24, '1': 24}
+Untouched sep28k evaluation: F1=1.000000
+Saved model: /var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/models/20260918T210250281730Z_soundrep_CQT-LTAS_SVM/model.joblib
+{
+  "audio_path": "/private/var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/dataset/clips/stuttering-clips/clips/TEST_ONLY010000.wav",
+  "original_sample_rate": 16000,
+  "original_samples": 3200,
+  "original_duration": 0.2,
+  "original_channels": 1,
+  "resampled_sample_rate": 8000,
+  "resampled_samples": 1600,
+  "resampled_duration": 0.2,
+  "frame_size": 160,
+  "number_of_frames": 10,
+  "discarded_tail_samples": 0,
+  "number_of_filters": 106,
+  "components": 107,
+  "filtered_signal_shape": [
+    106,
+    1600
+  ],
+  "rms_matrix_shape": [
+    107,
+    10
+  ],
+  "statistics_per_component": 10,
+  "feature_type": "CQT-LTAS",
+  "final_feature_shape": [
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0
+}
+Feature extraction: 48 / 48 (0 failed)
+{
+  "total_clips": 48,
+  "processed_clips": 48,
+  "failed_clips": 0,
+  "feature_matrix_shape": [
+    48,
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0,
+  "class_distribution": {
+    "0": 36,
+    "1": 12
+  },
+  "dataset": "sep28k",
+  "stutter_type": "wordrep",
+  "feature_config": {
+    "version": "ltas-reference-informed-v1",
+    "feature_type": "CQT-LTAS",
+    "dimension": 1069,
+    "sample_rate": 8000,
+    "mono": "arithmetic channel mean",
+    "resampling": "scipy.resample_poly",
+    "resample_window": [
+      "kaiser",
+      5.0
+    ],
+    "resample_padtype": "constant",
+    "frame_samples": 160,
+    "frame_hop": 160,
+    "frame_window": "rectangular",
+    "partial_frame": "drop trailing incomplete frame; reject clips shorter than 20ms",
+    "waveform_normalization": "none",
+    "ltas_order": "reference statistic-major",
+    "std_ddof": 1,
+    "skew_bias": true,
+    "kurtosis": "Pearson, bias=True",
+    "constant_moments": 0.0,
+    "zero_denominator_result": 0.0,
+    "cqt": {
+      "fmin": 10,
+      "fmax": 4000,
+      "bins_per_octave": 12,
+      "interior_centers": 104,
+      "boundary_filters": [
+        0,
+        4000
+      ],
+      "total_filters": 106,
+      "construction": "LTFAT-informed continuous frequency prototypes; periodic convolution",
+      "filter_prototype": "frequency-domain Hann; DC/Nyquist flat-top taper",
+      "minimum_support_fft_bins": 4,
+      "gain": "sqrt(N/ceil(N*support/fs)); endpoints /sqrt(2)"
+    },
+    "gt": {
+      "filters": 32,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "centers": "ERB-rate spaced",
+      "order": 4,
+      "phase": 0,
+      "bandwidth": "24.7*(4.37*fc/1000+1)",
+      "impulse_decay_limit": 30,
+      "gain": "unit magnitude at center"
+    },
+    "sff": {
+      "filters": 201,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "step_hz": 20,
+      "a": 0.98
+    },
+    "ltas_baseline": {
+      "status": "REFERENCE PROXY, identity NOT SPECIFIED IN PAPER",
+      "fir_order": 32,
+      "edges_hz": [
+        0,
+        30,
+        60,
+        120,
+        240,
+        480,
+        960,
+        1920,
+        2400,
+        3840
+      ]
+    },
+    "mfcc": {
+      "coefficients": 13,
+      "delta": 13,
+      "double_delta": 13,
+      "nfft": 256,
+      "mels": 26,
+      "dct": 2,
+      "include_c0": true,
+      "mel_norm": "slaney",
+      "db_floor": 1e-10
+    },
+    "ztwcc": {
+      "nfft": 128,
+      "segment_samples": 40,
+      "hop_samples": 50,
+      "preemphasis": 0.97,
+      "coefficients": 13,
+      "include_c0": true,
+      "log_floor": 1e-12,
+      "second_difference": "centered periodic"
+    },
+    "delta_width": 5,
+    "delta_edges": "replicate",
+    "methodology": "See METHODOLOGY.md: PAPER / REFERENCE / IMPLEMENTATION DECISION"
+  },
+  "selection_sha256": "9bdda6f7cb40f494db2f8970f88941b08c5911672b5142adf5d7681791018153",
+  "feature_csv_sha256": "b4373c8270ec3c274b1f226338ef184c55983d0081ed83e5b63d066ec22cceea"
+}
+Training classes before SMOTE: {'0': 24, '1': 8}
+Training classes after SMOTE: {'0': 24, '1': 24}
+Untouched sep28k evaluation: F1=0.857143
+Saved model: /var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/models/20260918T210250718308Z_wordrep_CQT-LTAS_SVM/model.joblib
+{
+  "audio_path": "/private/var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/dataset/clips/stuttering-clips/clips/TEST_ONLY010000.wav",
+  "original_sample_rate": 16000,
+  "original_samples": 3200,
+  "original_duration": 0.2,
+  "original_channels": 1,
+  "resampled_sample_rate": 8000,
+  "resampled_samples": 1600,
+  "resampled_duration": 0.2,
+  "frame_size": 160,
+  "number_of_frames": 10,
+  "discarded_tail_samples": 0,
+  "number_of_filters": 106,
+  "components": 107,
+  "filtered_signal_shape": [
+    106,
+    1600
+  ],
+  "rms_matrix_shape": [
+    107,
+    10
+  ],
+  "statistics_per_component": 10,
+  "feature_type": "CQT-LTAS",
+  "final_feature_shape": [
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0
+}
+Feature extraction: 48 / 48 (0 failed)
+{
+  "total_clips": 48,
+  "processed_clips": 48,
+  "failed_clips": 0,
+  "feature_matrix_shape": [
+    48,
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0,
+  "class_distribution": {
+    "0": 36,
+    "1": 12
+  },
+  "dataset": "sep28k",
+  "stutter_type": "prolongation",
+  "feature_config": {
+    "version": "ltas-reference-informed-v1",
+    "feature_type": "CQT-LTAS",
+    "dimension": 1069,
+    "sample_rate": 8000,
+    "mono": "arithmetic channel mean",
+    "resampling": "scipy.resample_poly",
+    "resample_window": [
+      "kaiser",
+      5.0
+    ],
+    "resample_padtype": "constant",
+    "frame_samples": 160,
+    "frame_hop": 160,
+    "frame_window": "rectangular",
+    "partial_frame": "drop trailing incomplete frame; reject clips shorter than 20ms",
+    "waveform_normalization": "none",
+    "ltas_order": "reference statistic-major",
+    "std_ddof": 1,
+    "skew_bias": true,
+    "kurtosis": "Pearson, bias=True",
+    "constant_moments": 0.0,
+    "zero_denominator_result": 0.0,
+    "cqt": {
+      "fmin": 10,
+      "fmax": 4000,
+      "bins_per_octave": 12,
+      "interior_centers": 104,
+      "boundary_filters": [
+        0,
+        4000
+      ],
+      "total_filters": 106,
+      "construction": "LTFAT-informed continuous frequency prototypes; periodic convolution",
+      "filter_prototype": "frequency-domain Hann; DC/Nyquist flat-top taper",
+      "minimum_support_fft_bins": 4,
+      "gain": "sqrt(N/ceil(N*support/fs)); endpoints /sqrt(2)"
+    },
+    "gt": {
+      "filters": 32,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "centers": "ERB-rate spaced",
+      "order": 4,
+      "phase": 0,
+      "bandwidth": "24.7*(4.37*fc/1000+1)",
+      "impulse_decay_limit": 30,
+      "gain": "unit magnitude at center"
+    },
+    "sff": {
+      "filters": 201,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "step_hz": 20,
+      "a": 0.98
+    },
+    "ltas_baseline": {
+      "status": "REFERENCE PROXY, identity NOT SPECIFIED IN PAPER",
+      "fir_order": 32,
+      "edges_hz": [
+        0,
+        30,
+        60,
+        120,
+        240,
+        480,
+        960,
+        1920,
+        2400,
+        3840
+      ]
+    },
+    "mfcc": {
+      "coefficients": 13,
+      "delta": 13,
+      "double_delta": 13,
+      "nfft": 256,
+      "mels": 26,
+      "dct": 2,
+      "include_c0": true,
+      "mel_norm": "slaney",
+      "db_floor": 1e-10
+    },
+    "ztwcc": {
+      "nfft": 128,
+      "segment_samples": 40,
+      "hop_samples": 50,
+      "preemphasis": 0.97,
+      "coefficients": 13,
+      "include_c0": true,
+      "log_floor": 1e-12,
+      "second_difference": "centered periodic"
+    },
+    "delta_width": 5,
+    "delta_edges": "replicate",
+    "methodology": "See METHODOLOGY.md: PAPER / REFERENCE / IMPLEMENTATION DECISION"
+  },
+  "selection_sha256": "49cb9c89f498d76fd4452c1ea77871a03e7ce55e2590fafa57943bf77c20eed1",
+  "feature_csv_sha256": "775afbe8f60aa202dee0763e231bb643a510514aae5df1396f1cdef77ab51b07"
+}
+Training classes before SMOTE: {'0': 24, '1': 8}
+Training classes after SMOTE: {'0': 24, '1': 24}
+Untouched sep28k evaluation: F1=1.000000
+Saved model: /var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/models/20260918T210251104852Z_prolongation_CQT-LTAS_SVM/model.joblib
+stutter_type classifier feature_type  f1_score_ours dataset  f1_score_paper  source                               doi  difference                                                                                                   caveat
+       block        SVM     CQT-LTAS       0.666667  sep28k          0.6331 [PAPER] 10.1109/ICASSP49660.2025.10888625    0.033567 Reference-informed reproduction; selection, numerical filters, input layout and F1 convention may differ
+       block       LSTM     CQT-LTAS       0.714286  sep28k          0.7343 [PAPER] 10.1109/ICASSP49660.2025.10888625   -0.020014 Reference-informed reproduction; selection, numerical filters, input layout and F1 convention may differ
+       block    Bi-LSTM     CQT-LTAS       0.833333  sep28k          0.7516 [PAPER] 10.1109/ICASSP49660.2025.10888625    0.081733 Reference-informed reproduction; selection, numerical filters, input layout and F1 convention may differ
+interjection        SVM     CQT-LTAS       0.857143  sep28k          0.6624 [PAPER] 10.1109/ICASSP49660.2025.10888625    0.194743 Reference-informed reproduction; selection, numerical filters, input layout and F1 convention may differ
+    soundrep        SVM     CQT-LTAS       1.000000  sep28k          0.6315 [PAPER] 10.1109/ICASSP49660.2025.10888625    0.368500 Reference-informed reproduction; selection, numerical filters, input layout and F1 convention may differ
+     wordrep        SVM     CQT-LTAS       0.857143  sep28k          0.6885 [PAPER] 10.1109/ICASSP49660.2025.10888625    0.168643 Reference-informed reproduction; selection, numerical filters, input layout and F1 convention may differ
+prolongation        SVM     CQT-LTAS       1.000000  sep28k          0.6660 [PAPER] 10.1109/ICASSP49660.2025.10888625    0.334000 Reference-informed reproduction; selection, numerical filters, input layout and F1 convention may differ
+Audio verification: 54 / 54
+{
+  "dataset": "fluencybank",
+  "labels_path": "/private/var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/dataset/fluencybank_labels.csv",
+  "labels_sha256": "be80038017de9d4320c9a8a8bed58754bc1e7640f4bec8ed89661014cb9ff983",
+  "wav_directory": "/private/var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/dataset/clips/stuttering-clips/clips",
+  "wav_template": "{Show}{EpId}{ClipId}.wav",
+  "total_samples": 54,
+  "clean_samples": 36,
+  "stutter_counts_including_overlaps": {
+    "Block": 18,
+    "Interjection": 0,
+    "SoundRep": 0,
+    "WordRep": 0,
+    "Prolongation": 0
+  },
+  "overlapping_labels": 0,
+  "label_combinations": {
+    "Clean": 36,
+    "Block": 18
+  },
+  "audio_status_counts": {
+    "valid": 54,
+    "missing_audio": 0,
+    "empty_audio": 0,
+    "invalid_audio": 0,
+    "short_audio": 0
+  },
+  "selection_provenance": "[IMPLEMENTATION DECISION] Pure target vs all-five-zero clean; NOT SPECIFIED IN PAPER",
+  "tasks": {
+    "block": {
+      "original_clips": 54,
+      "empty_clips": 0,
+      "missing_clips": 0,
+      "invalid_clips": 0,
+      "short_clips": 0,
+      "valid_clips": 54,
+      "valid_clean": 36,
+      "valid_target": 18,
+      "valid_block": 18
+    }
+  }
+}
+{
+  "audio_path": "/private/var/folders/63/fmsgs3ld2_ng6yg6jhbjq4wc0000gn/T/ltas_software_tests_hhjgeuc2/dataset/clips/stuttering-clips/clips/TEST_EXTERNAL010000.wav",
+  "original_sample_rate": 8000,
+  "original_samples": 2000,
+  "original_duration": 0.25,
+  "original_channels": 1,
+  "resampled_sample_rate": 8000,
+  "resampled_samples": 2000,
+  "resampled_duration": 0.25,
+  "frame_size": 160,
+  "number_of_frames": 12,
+  "discarded_tail_samples": 80,
+  "number_of_filters": 106,
+  "components": 107,
+  "filtered_signal_shape": [
+    106,
+    2000
+  ],
+  "rms_matrix_shape": [
+    107,
+    12
+  ],
+  "statistics_per_component": 10,
+  "feature_type": "CQT-LTAS",
+  "final_feature_shape": [
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0
+}
+Feature extraction: 54 / 54 (0 failed)
+{
+  "total_clips": 54,
+  "processed_clips": 54,
+  "failed_clips": 0,
+  "feature_matrix_shape": [
+    54,
+    1069
+  ],
+  "nan_count": 0,
+  "infinity_count": 0,
+  "class_distribution": {
+    "0": 36,
+    "1": 18
+  },
+  "dataset": "fluencybank",
+  "stutter_type": "block",
+  "feature_config": {
+    "version": "ltas-reference-informed-v1",
+    "feature_type": "CQT-LTAS",
+    "dimension": 1069,
+    "sample_rate": 8000,
+    "mono": "arithmetic channel mean",
+    "resampling": "scipy.resample_poly",
+    "resample_window": [
+      "kaiser",
+      5.0
+    ],
+    "resample_padtype": "constant",
+    "frame_samples": 160,
+    "frame_hop": 160,
+    "frame_window": "rectangular",
+    "partial_frame": "drop trailing incomplete frame; reject clips shorter than 20ms",
+    "waveform_normalization": "none",
+    "ltas_order": "reference statistic-major",
+    "std_ddof": 1,
+    "skew_bias": true,
+    "kurtosis": "Pearson, bias=True",
+    "constant_moments": 0.0,
+    "zero_denominator_result": 0.0,
+    "cqt": {
+      "fmin": 10,
+      "fmax": 4000,
+      "bins_per_octave": 12,
+      "interior_centers": 104,
+      "boundary_filters": [
+        0,
+        4000
+      ],
+      "total_filters": 106,
+      "construction": "LTFAT-informed continuous frequency prototypes; periodic convolution",
+      "filter_prototype": "frequency-domain Hann; DC/Nyquist flat-top taper",
+      "minimum_support_fft_bins": 4,
+      "gain": "sqrt(N/ceil(N*support/fs)); endpoints /sqrt(2)"
+    },
+    "gt": {
+      "filters": 32,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "centers": "ERB-rate spaced",
+      "order": 4,
+      "phase": 0,
+      "bandwidth": "24.7*(4.37*fc/1000+1)",
+      "impulse_decay_limit": 30,
+      "gain": "unit magnitude at center"
+    },
+    "sff": {
+      "filters": 201,
+      "range_hz": [
+        0,
+        4000
+      ],
+      "step_hz": 20,
+      "a": 0.98
+    },
+    "ltas_baseline": {
+      "status": "REFERENCE PROXY, identity NOT SPECIFIED IN PAPER",
+      "fir_order": 32,
+      "edges_hz": [
+        0,
+        30,
+        60,
+        120,
+        240,
+        480,
+        960,
+        1920,
+        2400,
+        3840
+      ]
+    },
+    "mfcc": {
+      "coefficients": 13,
+      "delta": 13,
+      "double_delta": 13,
+      "nfft": 256,
+      "mels": 26,
+      "dct": 2,
+      "include_c0": true,
+      "mel_norm": "slaney",
+      "db_floor": 1e-10
+    },
+    "ztwcc": {
+      "nfft": 128,
+      "segment_samples": 40,
+      "hop_samples": 50,
+      "preemphasis": 0.97,
+      "coefficients": 13,
+      "include_c0": true,
+      "log_floor": 1e-12,
+      "second_difference": "centered periodic"
+    },
+    "delta_width": 5,
+    "delta_edges": "replicate",
+    "methodology": "See METHODOLOGY.md: PAPER / REFERENCE / IMPLEMENTATION DECISION"
+  },
+  "selection_sha256": "6c8ee1d848c31ebef3b7b83386f99af4f961408be0162b5b83fe274756595ca2",
+  "feature_csv_sha256": "32b3b00be88c74d4cbaafc023b6bcf7384a65b4d0be68aec7c4bd2c31226ba1f"
+}
+Untouched fluencybank evaluation: F1=0.000000

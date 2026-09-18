@@ -1,0 +1,38 @@
+[
+  {
+    "retrieved_file": "ltas_ref_0.m",
+    "sha256": "1f6e747111aa71bbcda43c633984cf81eb177ed133dbfb957924e1d3fe382778",
+    "reference_name": "LTAS_feat.m",
+    "source": "https://github.com/Purva-Barche/LTASfilterbankcodes"
+  },
+  {
+    "retrieved_file": "ltas_ref_1.m",
+    "sha256": "7fef33ffa9e00c53ef0c34ce20d2fc9992a0d7959aa5c3b35fd755e18a24453e",
+    "reference_name": "LTAS_feat_CQT.m",
+    "source": "https://github.com/Purva-Barche/LTASfilterbankcodes"
+  },
+  {
+    "retrieved_file": "ltas_ref_2.m",
+    "sha256": "4b238bc491fd1dc157276af9aa9b3f4c5284f2c1406350d4bac9e5711c27ffe8",
+    "reference_name": "LTAS_feat_SFF.m",
+    "source": "https://github.com/Purva-Barche/LTASfilterbankcodes"
+  },
+  {
+    "retrieved_file": "ltas_ref_3.m",
+    "sha256": "0c8ec4e3dc1b2a4d1a85aa6ef9060c50c8796ccc4176be072b94ece1d8a4586e",
+    "reference_name": "LTAS_feat_gamma.m",
+    "source": "https://github.com/Purva-Barche/LTASfilterbankcodes"
+  },
+  {
+    "retrieved_file": "ltas_ref_4.pdf",
+    "sha256": "19af19b73efd353121d3fe808ed186fc9897ff6f524f1dfcffef994899dbe74d",
+    "reference_name": "ICASSP_2021_LTAS_Supporting_material%20.pdf",
+    "source": "https://github.com/Purva-Barche/LTASfilterbankcodes"
+  },
+  {
+    "retrieved_file": "cqtfilters.m",
+    "sha256": "3b34858474904658db1b73fa60a4f7de59d9c01a9167fdcc901213d4477765a3",
+    "reference_name": "ltfat-2.4.0.zip -> filterbank/cqtfilters.m",
+    "source": "https://github.com/Purva-Barche/LTASfilterbankcodes"
+  }
+]
